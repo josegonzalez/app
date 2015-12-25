@@ -19,7 +19,9 @@
         "friendsofcake/crud": "4.*",
         "friendsofcake/crud-view": "0.*",
         "friendsofcake/bootstrap-ui": "0.*",
-        "friendsofcake/search": "1.*"
+        "friendsofcake/search": "1.*",
+        "josegonzalez/cakephp-upload": "3.*",
+        "josegonzalez/queuesadilla": "dev-master"
     },
     "require-dev": {
         "psy/psysh": "@stable",
