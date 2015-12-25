@@ -65,6 +65,7 @@ class AppController extends Controller
         ]);
 
         if (in_array($this->request->action, ['index', 'lookup'])) {
+            $this->Crud->addListener('Crud.Search');
             $this->loadComponent('Search.Prg');
         }
     }
