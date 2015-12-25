@@ -16,6 +16,7 @@ namespace App\Controller;
 
 use Cake\Controller\Controller;
 use Cake\Event\Event;
+use Crud\Controller\ControllerTrait;
 
 /**
  * Application Controller
@@ -27,6 +28,8 @@ use Cake\Event\Event;
  */
 class AppController extends Controller
 {
+
+    use ControllerTrait;
 
     /**
      * Initialization hook method.
@@ -43,6 +46,27 @@ class AppController extends Controller
 
         $this->loadComponent('RequestHandler');
         $this->loadComponent('Flash');
+        $this->loadComponent('Crud.Crud', [
+            'actions' => [
+                'Crud.Index',
+                'Crud.Add',
+                'Crud.Edit',
+                'Crud.View',
+                'Crud.Delete',
+            ],
+            'listeners' => [
+                'Crud.Api',
+                'Crud.ApiPagination',
+                'Crud.ApiQueryLog',
+                'CrudView.View',
+                'Crud.RelatedModels',
+                'Crud.Redirect',
+            ],
+        ]);
+
+        if (in_array($this->request->action, ['index', 'lookup'])) {
+            $this->loadComponent('Search.Prg');
+        }
     }
 
     /**
