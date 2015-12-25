@@ -1,7 +1,7 @@
 {
-    "name": "cakephp/app",
+    "name": "josegonzalez/app",
     "description": "CakePHP skeleton app",
-    "homepage": "http://cakephp.org",
+    "homepage": "https://github.com/josegonzalez/app",
     "type": "project",
     "license": "MIT",
     "require": {
