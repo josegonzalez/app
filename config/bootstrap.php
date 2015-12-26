@@ -105,9 +105,9 @@ ini_set('intl.default_locale', 'en_US');
  */
 $isCli = PHP_SAPI === 'cli';
 if ($isCli) {
-    (new ConsoleErrorHandler(Configure::read('Error')))->register();
+    (new \Josegonzalez\ErrorHandlers\Cake\ConsoleErrorHandler(Configure::read('Error')))->register();
 } else {
-    (new ErrorHandler(Configure::read('Error')))->register();
+    (new \Josegonzalez\ErrorHandlers\Cake\ErrorHandler(Configure::read('Error')))->register();
 }
 
 // Include the CLI bootstrap overrides.
