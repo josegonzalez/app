@@ -15,6 +15,7 @@
 namespace App\Controller;
 
 use Cake\Controller\Controller;
+use Cake\Core\Configure;
 use Cake\Event\Event;
 use Crud\Controller\ControllerTrait;
 
@@ -100,6 +101,7 @@ class AppController extends Controller
                 ];
             }
         });
+        $this->Crud->action()->config('scaffold.brand', Configure::read('App.name'));
     }
 
     /**
