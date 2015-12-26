@@ -32,7 +32,7 @@ class AppController extends Controller
     use ControllerTrait;
 
     /**
-     * Whether or not to treat a controller as 
+     * Whether or not to treat a controller as
      * if it were an admin controller or not.
      *
      * Used to turn CrudView on and off at a class-level
@@ -88,6 +88,7 @@ class AppController extends Controller
      */
     public function beforeRender(Event $event)
     {
+        parent::beforeRender($event);
         $isRest = in_array($this->response->type(), ['application/json', 'application/xml']);
         $isAdmin = $this->request->prefix == 'admin' || $this->isAdmin;
 
