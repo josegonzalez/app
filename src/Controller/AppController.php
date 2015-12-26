@@ -102,6 +102,12 @@ class AppController extends Controller
             }
         });
         $this->Crud->action()->config('scaffold.brand', Configure::read('App.name'));
+
+        $isRest = in_array($this->response->type(), ['application/json', 'application/xml']);
+        $isAdmin = $this->request->prefix == 'admin' || $this->isAdmin;
+        if (!$isRest && $isAdmin) {
+            $this->viewClass = 'CrudView\View\CrudView';
+        }
     }
 
     /**
@@ -114,15 +120,9 @@ class AppController extends Controller
     {
         parent::beforeRender($event);
         $isRest = in_array($this->response->type(), ['application/json', 'application/xml']);
-        $isAdmin = $this->request->prefix == 'admin' || $this->isAdmin;
 
         if (!array_key_exists('_serialize', $this->viewVars) && $isRest) {
             $this->set('_serialize', true);
         }
-
-        if (!$isRest && $isAdmin) {
-            $this->viewClass = 'CrudView\View\CrudView';
-        }
-
     }
 }
