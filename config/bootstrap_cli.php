@@ -34,3 +34,8 @@ try {
 } catch (MissingPluginException $e) {
     // Do not halt if the plugin is missing
 }
+
+/**
+ * Require a file that contains all bake events
+ */
+require __DIR__ . '/bake_cli.php';
