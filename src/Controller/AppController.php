@@ -32,6 +32,16 @@ class AppController extends Controller
     use ControllerTrait;
 
     /**
+     * Whether or not to treat a controller as 
+     * if it were an admin controller or not.
+     *
+     * Used to turn CrudView on and off at a class-level
+     *
+     * @var bool
+     */
+    protected $isAdmin = false;
+
+    /**
      * Initialization hook method.
      *
      * Use this method to add common initialization code like loading components.
@@ -79,7 +89,7 @@ class AppController extends Controller
     public function beforeRender(Event $event)
     {
         $isRest = in_array($this->response->type(), ['application/json', 'application/xml']);
-        $isAdmin = $this->request->prefix == 'admin';
+        $isAdmin = $this->request->prefix == 'admin' || $this->isAdmin;
 
         if (!array_key_exists('_serialize', $this->viewVars) && $isRest) {
             $this->set('_serialize', true);
