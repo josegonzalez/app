@@ -21,7 +21,8 @@
         "friendsofcake/bootstrap-ui": "0.*",
         "friendsofcake/search": "1.*",
         "josegonzalez/cakephp-upload": "3.*",
-        "josegonzalez/queuesadilla": "dev-master"
+        "josegonzalez/queuesadilla": "dev-master",
+        "josegonzalez/php-error-handlers": "^0.0.1"
     },
     "require-dev": {
         "psy/psysh": "@stable",
