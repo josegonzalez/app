@@ -81,6 +81,28 @@ class AppController extends Controller
     }
 
     /**
+     * Before filter callback.
+     *
+     * @param \Cake\Event\Event $event The beforeRender event.
+     * @return void
+     */
+    public function beforeFilter(Event $event)
+    {
+        parent::beforeFilter($event);
+
+        $this->Crud->on('beforePaginate', function (Event $event) {
+            $repository = $event->subject()->query->repository();
+            $primaryKey = $repository->primaryKey();
+
+            if (!is_array($primaryKey)) {
+                $this->paginate['order'] = [
+                    sprintf('%s.%s', $repository->alias(), $primaryKey) => 'asc'
+                ];
+            }
+        });
+    }
+
+    /**
      * Before render callback.
      *
      * @param \Cake\Event\Event $event The beforeRender event.
