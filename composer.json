@@ -22,7 +22,7 @@
         "friendsofcake/search": "1.*",
         "josegonzalez/cakephp-upload": "3.*",
         "josegonzalez/queuesadilla": "dev-master",
-        "josegonzalez/php-error-handlers": "^0.0.1"
+        "josegonzalez/php-error-handlers": "0.*"
     },
     "require-dev": {
         "psy/psysh": "@stable",
