@@ -56,6 +56,26 @@ For configuration that varies between environments, you should modify the `confi
 
 As a convenience, certain variables are remapped automatically by the `config/env.php` file. You may add other paths at your leisure to this file.
 
+### Customizing Bake
+
+There now exists a `config/bake_cli.php`. This file should contain all bake-related event handlers. It is used to speed up the re-bake process such that we don't need to go in and re-add customizations.
+
+As an example, the following event handler will add the `Josegonzalez/Upload.Upload` plugin to the `Users.photo` field:
+
+```php
+EventManager::instance()->on('Bake.beforeRender.Model.table', function (Event $event) {
+    $view = $event->subject();
+    $name = Hash::get($view->viewVars, 'name', null);
+    if ($name == 'Users') {
+        $behaviors = Hash::normalize(Hash::get($view->viewVars, 'behaviors', []));
+        $behaviors['Josegonzalez/Upload.Upload'] = ['photo' => []];
+        $view->set('behaviors', $behaviors);
+    }
+});
+```
+
+Please refer to the [bake documentation](http://book.cakephp.org/3.0/en/bake/development.html) for more details.
+
 ### Error Handling
 
 Custom error handlers that ship errors to external error tracking services are set via `josegonzalez/php-error-handers`. To configure one, you can add the following key configuration to your `config/app.php`:
