@@ -56,6 +56,18 @@ For configuration that varies between environments, you should modify the `confi
 
 As a convenience, certain variables are remapped automatically by the `config/env.php` file. You may add other paths at your leisure to this file.
 
+### Crud Defaults
+
+By default, the [crud](https://github.com/friendsofcake/crud) plugin has been enabled with all known customizations. Simply creating a controller will enable all CRUD-actions in the default RESTful api mode.
+
+Note that we *also* default pagination sorting to the table's `primaryKey` (if there is a single `primaryKey` field).
+
+#### Crud View Defaults
+
+[Crud View](https://github.com/friendsofcake/crud-view) is enabled for all admin-prefixed actions in the `Application::beforeFilter`. You may *also* turn it on automatically for a controller by setting the controller's `$isAdmin` property to `true`.
+
+Note that the `scaffold.brand` is set to the constant `APP_NAME`, which can be modified in your `config/.env.default` or `config/.env` files.
+
 ### Customizing Bake
 
 There now exists a `config/bake_cli.php`. This file should contain all bake-related event handlers. It is used to speed up the re-bake process such that we don't need to go in and re-add customizations.
