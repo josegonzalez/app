@@ -4,7 +4,7 @@
  *
  * EventManager::instance()->on('Bake.beforeRender.Controller.controller', function (Event $event) {
  *    // logic here
- *});
+ * });
  */
 
 use Cake\Event\Event;
