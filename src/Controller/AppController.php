@@ -101,7 +101,10 @@ class AppController extends Controller
                 ];
             }
         });
-        $this->Crud->action()->config('scaffold.brand', Configure::read('App.name'));
+
+        if ($this->Crud->isActionMapped()) {
+            $this->Crud->action()->config('scaffold.brand', Configure::read('App.name'));
+        }
 
         $isRest = in_array($this->response->type(), ['application/json', 'application/xml']);
         $isAdmin = $this->request->prefix == 'admin' || $this->isAdmin;
