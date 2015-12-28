@@ -20,6 +20,7 @@
         "friendsofcake/crud-view": "0.*",
         "friendsofcake/bootstrap-ui": "0.*",
         "friendsofcake/search": "1.*",
+        "markstory/asset_compress": "3.*",
         "josegonzalez/cakephp-upload": "3.*",
         "josegonzalez/queuesadilla": "dev-master",
         "josegonzalez/php-error-handlers": "0.*"
