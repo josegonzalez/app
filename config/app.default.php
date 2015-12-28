@@ -84,7 +84,7 @@ return [
         'default' => [
             'className' => 'File',
             'path' => CACHE,
-            'url' => env('CACHE_DEFAULT_URL', ''), 
+            'url' => env('CACHE_DEFAULT_URL', ''),
         ],
 
         /**
