@@ -1,6 +1,6 @@
 <?php
-use josegonzalez\Dotenv\Loader;
 use Cake\Utility\Hash;
+use josegonzalez\Dotenv\Loader;
 
 $config = [];
 if (!env('APP_NAME')) {
