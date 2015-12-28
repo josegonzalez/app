@@ -8,6 +8,12 @@ use Exception;
 
 class QueuesadillaShell extends Shell
 {
+    /**
+     * Override main() to handle action
+     * Starts a Queuesadilla worker
+     *
+     * @return void
+     */
     public function main()
     {
         $engine = $this->params['engine'];
@@ -25,6 +31,11 @@ class QueuesadillaShell extends Shell
         $worker->work();
     }
 
+    /**
+     * Retrieves default configuration for the engine
+     *
+     * @return array
+     */
     protected function getEngineConfig()
     {
         $config = Configure::read('Queuesadilla.engine');
@@ -38,6 +49,11 @@ class QueuesadillaShell extends Shell
         return $config;
     }
 
+    /**
+     * Retrieves a name of a logger engine to use
+     *
+     * @return string
+     */
     protected function getLoggerName()
     {
         $loggerName = Configure::read('Queuesadilla.logger');
@@ -47,6 +63,11 @@ class QueuesadillaShell extends Shell
         return $loggerName;
     }
 
+    /**
+     * Gets the option parser instance and configures it.
+     *
+     * @return \Cake\Console\ConsoleOptionParser
+     */
     public function getOptionParser()
     {
         $parser = parent::getOptionParser();
