@@ -334,4 +334,14 @@ return [
     'Session' => [
         'defaults' => 'php',
     ],
+
+    /**
+     * Configures the Queuesadilla engine to read from mysql as it's database
+     */
+    'Queuesadilla' => [
+        'engine' => [
+            'url' => env('DATABASE_URL'),
+        ],
+    ],
+
 ];
