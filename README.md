@@ -32,19 +32,27 @@ git push heroku master
 
 Migrations for the core application will run by default. If you wish to run migrations for plugins, you will need to modify the key `scripts.compile` in your `composer.json`.
 
-### Installed Plugins
+### Installed Packages and Plugins
 
-The following is a list of plugins installed and pre-configured:
+The following is a list of CakePHP plugins that are installed and pre-configured:
 
-- friendsofcake/crud
-- friendsofcake/crud-view
-- friendsofcake/bootstrap-ui
-- friendsofcake/search
-- josegonzalez/cakephp-upload
+- [friendsofcake/bootstrap-ui](https://github.com/FriendsOfCake/bootstrap-ui)
+- [friendsofcake/crud-view](https://github.com/FriendsOfCake/crud-view)
+- [friendsofcake/crud](https://github.com/FriendsOfCake/crud)
+- [friendsofcake/search](https://github.com/FriendsOfCake/search)
+- [josegonzalez/cakephp-upload](https://github.com/josegonzalez/cakephp-upload)
+- [markstory/asset_compress](https://github.com/markstory/asset_compress)
+
+The following is a list of PHP packages that are installed and pre-configured:
+
+- [cakephp/cakephp-codesniffer](https://github.com/cakephp/cakephp-codesniffer)
+- [josegonzalez/php-dotenv](https://github.com/josegonzalez/php-dotenv)
+- [josegonzalez/php-error-handers](https://github.com/josegonzalez/php-error-handlers)
+- [josegonzalez/queuesadilla](https://github.com/josegonzalez/php-queuesadilla)
 
 ### Configuration
 
-By default, this skeleton will load configuration from the following files:
+By default, this skeleton will use [josegonzalez/php-dotenv](https://github.com/josegonzalez/php-dotenv) to load configuration from the following files:
 
 - `config/app.php`
 - `config/.env`
@@ -55,6 +63,10 @@ For "global" configuration that does not change between environments, you should
 For configuration that varies between environments, you should modify the `config/.env` file. This file is a bash-compatible file that contains `export KEY_1=VALUE` statements. Underscores in keys are used to expand the key into a nested array, similar to how `\Cake\Utility\Hash::expand()` works.
 
 As a convenience, certain variables are remapped automatically by the `config/env.php` file. You may add other paths at your leisure to this file.
+
+### Asset Compression
+
+The [markstory/asset_compress](https://github.com/markstory/asset_compress) plugin is installed and enabled by default. It is used by the CrudView plugin, but does not currently have an integration with the default layout.
 
 ### Crud Defaults
 
@@ -90,7 +102,7 @@ Please refer to the [bake documentation](http://book.cakephp.org/3.0/en/bake/dev
 
 ### Error Handling
 
-Custom error handlers that ship errors to external error tracking services are set via `josegonzalez/php-error-handers`. To configure one, you can add the following key configuration to your `config/app.php`:
+Custom error handlers that ship errors to external error tracking services are set via the [josegonzalez/php-error-handers](https://github.com/josegonzalez/php-error-handlers) package. To configure one, you can add the following key configuration to your `config/app.php`:
 
 ```php
 [
@@ -110,6 +122,8 @@ Custom error handlers that ship errors to external error tracking services are s
 Then simply set the proper environment variable in your `config/.env` or in your platform's configuration management tool.
 
 ### Queuing
+
+Queuing support is provided through the [Queuesadilla](https://github.com/josegonzalez/php-queuesadilla) php package, with a custom CakePHP shell providing integration.
 
 You can start a queue off the `jobs` mysql table:
 
