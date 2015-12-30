@@ -3,7 +3,7 @@
 [![Build Status](https://img.shields.io/travis/josegonzalez/app/master.svg?style=flat-square)](https://travis-ci.org/josegonzalez/app)
 [![License](https://img.shields.io/packagist/l/josegonzalez/app.svg?style=flat-square)](https://packagist.org/packages/josegonzalez/app)
 
-A fork of the [official skeleton](https://github.com/cakephp/app) for creating applications with [CakePHP](http://cakephp.org) 3.x.
+A fork of the [official skeleton](https://github.com/cakephp/app) for creating applications with [CakePHP](http://cakephp.org) 3.x. It should be more or less "batteries included"
 
 The framework source code can be found here: [cakephp/cakephp](https://github.com/cakephp/cakephp).
 
@@ -21,16 +21,6 @@ You should now be able to visit the path to where you installed the app and see
 the setup traffic lights.
 
 ## Features
-
-### Heroku Support
-
-Heroku and other PaaS-software are supported by default. If deploying to Heroku, simply run the following and - assuming you have the proper remote configuration - everything should work as normal:
-
-```shell
-git push heroku master
-```
-
-Migrations for the core application will run by default. If you wish to run migrations for plugins, you will need to modify the key `scripts.compile` in your `composer.json`.
 
 ### Installed Packages and Plugins
 
@@ -120,6 +110,16 @@ Custom error handlers that ship errors to external error tracking services are s
 ```
 
 Then simply set the proper environment variable in your `config/.env` or in your platform's configuration management tool.
+
+### Heroku Support
+
+Heroku and other PaaS-software are supported by default. If deploying to Heroku, simply run the following and - assuming you have the proper remote configuration - everything should work as normal:
+
+```shell
+git push heroku master
+```
+
+Migrations for the core application will run by default. If you wish to run migrations for plugins, you will need to modify the key `scripts.compile` in your `composer.json`.
 
 ### Queuing
 
