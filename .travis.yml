@@ -5,6 +5,9 @@ sudo: false
 php:
   - 7.0
 
+install:
+  - composer install
+
 script:
   - sh -c "vendor/bin/phpcs -p --extensions=php --standard=vendor/cakephp/cakephp-codesniffer/CakePHP --ignore=config/Migrations ./src ./tests ./config ./webroot"
 
