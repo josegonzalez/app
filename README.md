@@ -5,8 +5,6 @@
 
 A fork of the [official skeleton](https://github.com/cakephp/app) for creating applications with [CakePHP](http://cakephp.org) 3.x. It should be more or less "batteries included"
 
-The framework source code can be found here: [cakephp/cakephp](https://github.com/cakephp/cakephp).
-
 ## Installation
 
 1. Download [Composer](http://getcomposer.org/doc/00-intro.md) or update `composer self-update`.
