@@ -2,6 +2,8 @@
 
 [![Build Status](https://img.shields.io/travis/josegonzalez/app/master.svg?style=flat-square)](https://travis-ci.org/josegonzalez/app)
 [![License](https://img.shields.io/packagist/l/josegonzalez/app.svg?style=flat-square)](https://packagist.org/packages/josegonzalez/app)
+[![Version](https://img.shields.io/packagist/v/josegonzalez/app.svg?style=flat-square)](https://packagist.org/packages/josegonzalez/app)
+[![Total Downloads](https://img.shields.io/packagist/dt/josegonzalez/app.svg?style=flat-square)](https://packagist.org/packages/josegonzalez/app)
 
 A fork of the [official skeleton](https://github.com/cakephp/app) for creating applications with [CakePHP](http://cakephp.org) 3.x. It should be more or less "batteries included"
 
