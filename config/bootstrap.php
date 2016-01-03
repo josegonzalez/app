@@ -67,7 +67,7 @@ try {
     Configure::load('app', 'default', false);
     Configure::load('env', 'default', true);
 } catch (\Exception $e) {
-    die($e->getMessage() . "\n");
+    exit($e->getMessage() . "\n");
 }
 
 // Load an environment local configuration file.
@@ -146,7 +146,7 @@ Security::salt(Configure::consume('Security.salt'));
  * If you are migrating from 2.x uncomment this code to
  * use a more compatible Mcrypt based implementation
  */
-// Security::engine(new \Cake\Utility\Crypto\Mcrypt());
+//Security::engine(new \Cake\Utility\Crypto\Mcrypt());
 
 /**
  * Setup detectors for mobile and tablet.
