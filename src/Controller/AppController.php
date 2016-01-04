@@ -43,7 +43,7 @@ class AppController extends Controller
     protected $isAdmin = false;
 
     /**
-     * A list of actions where the Crud.SearchListener 
+     * A list of actions where the Crud.SearchListener
      * and Search.PrgComponent should be enabled
      *
      * @var array
