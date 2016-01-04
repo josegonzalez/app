@@ -43,6 +43,14 @@ class AppController extends Controller
     protected $isAdmin = false;
 
     /**
+     * A list of actions where the Crud.SearchListener 
+     * and Search.PrgComponent should be enabled
+     *
+     * @var array
+     */
+    protected $searchActions = ['index', 'lookup'];
+
+    /**
      * Initialization hook method.
      *
      * Use this method to add common initialization code like loading components.
@@ -75,9 +83,12 @@ class AppController extends Controller
             ],
         ]);
 
-        if (in_array($this->request->action, ['index', 'lookup'])) {
-            $this->Crud->addListener('Crud.Search');
-            $this->loadComponent('Search.Prg');
+        if (in_array($this->request->action, $this->searchActions)) {
+            list($plugin, $tableClass) = pluginSplit($this->modelClass);
+            if (!empty($this->$tableClass) && $this->$tableClass->behaviors()->hasMethod('filterParams')) {
+                $this->Crud->addListener('Crud.Search');
+                $this->loadComponent('Search.Prg');
+            }
         }
     }
 
