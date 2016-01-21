@@ -171,10 +171,16 @@ class Installer
      */
     public static function setSecuritySalt($dir, $io)
     {
-        $config = $dir . '/config/app.php';
-        $content = file_get_contents($config);
-
         $newKey = hash('sha256', $dir . php_uname() . microtime(true));
+
+        static::setSecuritySaltInFile($dir, $io, $newKey, 'app.php');
+        static::setSecuritySaltInFile($dir, $io, $newKey, '.env.default');
+    }
+
+    public static function setSecuritySaltInFile($dir, $io, $newKey, $file)
+    {
+        $config = $dir . '/config/' . $file;
+        $content = file_get_contents($config);
         $content = str_replace('__SALT__', $newKey, $content, $count);
 
         if ($count == 0) {
@@ -184,7 +190,7 @@ class Installer
 
         $result = file_put_contents($config, $content);
         if ($result) {
-            $io->write('Updated Security.salt value in config/app.php');
+            $io->write('Updated Security.salt value in config/' . $file);
             return;
         }
         $io->write('Unable to update Security.salt value.');
