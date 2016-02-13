@@ -177,6 +177,15 @@ class Installer
         static::setSecuritySaltInFile($dir, $io, $newKey, '.env.default');
     }
 
+    /**
+     * Set the security.salt value in a given file
+     *
+     * @param string $dir The application's root directory.
+     * @param \Composer\IO\IOInterface $io IO interface to write to console.
+     * @param string $newKey key to set in the file
+     * @param string $file A path to a file relative to the application's root
+     * @return void
+     */
     public static function setSecuritySaltInFile($dir, $io, $newKey, $file)
     {
         $config = $dir . '/config/' . $file;
