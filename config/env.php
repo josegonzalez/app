@@ -15,7 +15,7 @@ if (!env('APP_NAME')) {
         function ($data) {
             $keys = [
                 'Debug' => 'debug',
-                'Emailtransport' => 'EmailTransport',
+                'Email.transport' => null,
                 'Database.test' => 'Datasources.test',
                 'Database' => 'Datasources.default',
                 'Cache.duration' => null,
