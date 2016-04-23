@@ -123,7 +123,7 @@ Migrations for the core application will run by default. If you wish to run migr
 
 ### Queuing
 
-Queuing support is provided through the [Queuesadilla](https://github.com/josegonzalez/php-queuesadilla) php package, with a custom CakePHP shell providing integration.
+Queuing support is provided through the [Queuesadilla](https://github.com/josegonzalez/php-queuesadilla) php package, with a [CakePHP plugin](https://github.com/josegonzalez/cakephp-queuesadilla) providing integration.
 
 You can start a queue off the `jobs` mysql table:
 
