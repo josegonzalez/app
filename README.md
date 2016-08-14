@@ -22,6 +22,16 @@ the setup traffic lights.
 
 ## Features
 
+- [New Installed Packages and Plugins](#installed-packages-and-plugins)
+- [Environment Variable Configuration](#configuration)
+- [Asset Compression](#asset-compression)
+- [Crud Defaults](#crud-defaults)
+    - [Crud View Defaults](#crud-view-defaults)
+- [Customizing Bake](#customizing-bake)
+- [Error Handling](#error-handling)
+- [Heroku Support](#heroku-support)
+- [Queuing](#queuing)
+
 ### Installed Packages and Plugins
 
 The following is a list of CakePHP plugins that are installed and pre-configured:
