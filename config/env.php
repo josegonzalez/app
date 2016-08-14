@@ -31,6 +31,7 @@ if (!env('APP_NAME')) {
                 $data = Hash::remove($data, $key);
                 $data = Hash::insert($data, $newKey, $value);
             }
+
             return $data;
         }
     ]);
@@ -38,4 +39,5 @@ if (!env('APP_NAME')) {
     $dotenv->filter();
     $config = $dotenv->toArray();
 }
+
 return $config;
