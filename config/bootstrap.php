@@ -13,26 +13,6 @@
  * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
 
-/**
- * Configure paths required to find CakePHP + general filepath
- * constants
- */
-require __DIR__ . '/paths.php';
-
-// Use composer to load the autoloader.
-require ROOT . DS . 'vendor' . DS . 'autoload.php';
-
-/**
- * Bootstrap CakePHP.
- *
- * Does the various bits of setup that CakePHP needs to do.
- * This includes:
- *
- * - Registering the CakePHP autoloader.
- * - Setting the default application paths.
- */
-require CORE_PATH . 'config' . DS . 'bootstrap.php';
-
 // You can remove this if you are confident that your PHP version is sufficient.
 if (version_compare(PHP_VERSION, '5.5.9') < 0) {
     trigger_error('You PHP version must be equal or higher than 5.5.9 to use CakePHP.', E_USER_ERROR);
@@ -47,6 +27,23 @@ if (!extension_loaded('intl')) {
 if (!extension_loaded('mbstring')) {
     trigger_error('You must enable the mbstring extension to use CakePHP.', E_USER_ERROR);
 }
+
+/**
+ * Configure paths required to find CakePHP + general filepath
+ * constants
+ */
+require __DIR__ . '/paths.php';
+
+/**
+ * Bootstrap CakePHP.
+ *
+ * Does the various bits of setup that CakePHP needs to do.
+ * This includes:
+ *
+ * - Registering the CakePHP autoloader.
+ * - Setting the default application paths.
+ */
+require CORE_PATH . 'config' . DS . 'bootstrap.php';
 
 use Cake\Cache\Cache;
 use Cake\Console\ConsoleErrorHandler;
@@ -163,12 +160,29 @@ Security::salt(Configure::consume('Security.salt'));
  */
 Request::addDetector('mobile', function ($request) {
     $detector = new \Detection\MobileDetect();
+
     return $detector->isMobile();
 });
 Request::addDetector('tablet', function ($request) {
     $detector = new \Detection\MobileDetect();
+
     return $detector->isTablet();
 });
+
+/**
+ * Enable immutable time objects in the ORM.
+ *
+ * You can enable default locale format parsing by adding calls
+ * to `useLocaleParser()`. This enables the automatic conversion of
+ * locale specific date formats. For details see
+ * @link http://book.cakephp.org/3.0/en/core-libraries/internationalization-and-localization.html#parsing-localized-datetime-data
+ */
+Type::build('time')
+    ->useImmutable();
+Type::build('date')
+    ->useImmutable();
+Type::build('datetime')
+    ->useImmutable();
 
 /**
  * Custom Inflector rules, can be set to correctly pluralize or singularize
@@ -191,38 +205,16 @@ Request::addDetector('tablet', function ($request) {
  *
  */
 
-Plugin::load('Migrations');
-Plugin::load('AssetCompress', ['bootstrap' => true]);
-Plugin::load('BootstrapUI');
-Plugin::load('Crud');
-Plugin::load('CrudView');
-Plugin::load('Josegonzalez/Upload');
-Plugin::load('Search');
-
 // Only try to load DebugKit in development mode
 // Debug Kit should not be installed on a production system
 if (Configure::read('debug')) {
     Plugin::load('DebugKit', ['bootstrap' => true]);
 }
 
-/**
- * Connect middleware/dispatcher filters.
- */
-DispatcherFactory::add('Asset');
-DispatcherFactory::add('Routing');
-DispatcherFactory::add('ControllerFactory');
-
-/**
- * Enable immutable time objects in the ORM.
- *
- * You can enable default locale format parsing by adding calls
- * to `useLocaleParser()`. This enables the automatic conversion of
- * locale specific date formats. For details see
- * @link http://book.cakephp.org/3.0/en/core-libraries/internationalization-and-localization.html#parsing-localized-datetime-data
- */
-Type::build('time')
-    ->useImmutable();
-Type::build('date')
-    ->useImmutable();
-Type::build('datetime')
-    ->useImmutable();
+Plugin::load('AssetCompress', ['bootstrap' => true]);
+Plugin::load('BootstrapUI');
+Plugin::load('Crud');
+Plugin::load('CrudView');
+Plugin::load('Josegonzalez/Upload');
+Plugin::load('Migrations');
+Plugin::load('Search');

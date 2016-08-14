@@ -93,6 +93,7 @@ return [
          * Configure the cache used for general framework caching.
          * Translation cache files are stored with this configuration.
          * Duration will be set to '+1 year' in bootstrap.php when debug = false
+         * If you set 'className' => 'Null' core cache will be disabled.
          */
         '_cake_core_' => [
             'className' => 'File',
@@ -149,7 +150,7 @@ return [
      *   breathing room to complete logging or error handling.
      */
     'Error' => [
-        'errorLevel' => E_ALL & ~E_DEPRECATED,
+        'errorLevel' => E_ALL,
         'exceptionRenderer' => 'Cake\Error\ExceptionRenderer',
         'skipLog' => [],
         'log' => true,
@@ -211,6 +212,8 @@ return [
     /**
      * Connection information used by the ORM to connect
      * to your application's datastores.
+     * Do not use periods in database name - it may lead to error.
+     * See https://github.com/cakephp/cakephp/issues/6471 for details.
      * Drivers include Mysql Postgres Sqlite Sqlserver
      * See vendor\cakephp\cakephp\src\Database\Driver for complete list
      */
