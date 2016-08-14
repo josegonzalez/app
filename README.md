@@ -182,5 +182,3 @@ $queue->push('some_job', [
 ```
 
 See [here](https://github.com/josegonzalez/php-queuesadilla/blob/master/docs/defining-jobs.md) for more information on defining jobs.
-
-> One nice thing that *could* be implemented is a registry pattern around engines. You could maybe configure multiple engines - similar to how one might do so for caches or logging - and then pull them out using an `ObjectRegistry`. Future enhancement I guess.
