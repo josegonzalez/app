@@ -60,6 +60,7 @@ use Cake\Network\Request;
 use Cake\Routing\DispatcherFactory;
 use Cake\Utility\Inflector;
 use Cake\Utility\Security;
+use Josegonzalez\CakeQueuesadilla\Queue\Queue;
 
 /**
  * Read configuration file and inject configuration into various
@@ -143,6 +144,7 @@ if (!Configure::read('App.fullBaseUrl')) {
 
 Cache::config(Configure::consume('Cache'));
 ConnectionManager::config(Configure::consume('Datasources'));
+Queue::config(Configure::consume('Queuesadilla'));
 Email::configTransport(Configure::consume('EmailTransport'));
 Email::config(Configure::consume('Email'));
 Log::config(Configure::consume('Log'));

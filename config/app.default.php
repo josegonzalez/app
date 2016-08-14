@@ -348,7 +348,7 @@ return [
      * Configures the Queuesadilla engine to read from mysql as it's database
      */
     'Queuesadilla' => [
-        'engine' => [
+        'default' => [
             'url' => env('DATABASE_URL'),
         ],
     ],
