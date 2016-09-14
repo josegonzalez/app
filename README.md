@@ -41,6 +41,7 @@ The following is a list of CakePHP plugins that are installed and pre-configured
 - [friendsofcake/crud](https://github.com/FriendsOfCake/crud)
 - [friendsofcake/search](https://github.com/FriendsOfCake/search)
 - [josegonzalez/cakephp-upload](https://github.com/josegonzalez/cakephp-upload)
+- [josegonzalez/cakephp-queuesadilla](https://github.com/josegonzalez/cakephp-queuesadilla)
 - [markstory/asset_compress](https://github.com/markstory/asset_compress)
 
 The following is a list of PHP packages that are installed and pre-configured:
@@ -48,7 +49,6 @@ The following is a list of PHP packages that are installed and pre-configured:
 - [cakephp/cakephp-codesniffer](https://github.com/cakephp/cakephp-codesniffer)
 - [josegonzalez/php-dotenv](https://github.com/josegonzalez/php-dotenv)
 - [josegonzalez/php-error-handers](https://github.com/josegonzalez/php-error-handlers)
-- [josegonzalez/queuesadilla](https://github.com/josegonzalez/php-queuesadilla)
 
 ### Configuration
 
