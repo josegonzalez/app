@@ -7,7 +7,6 @@
     "require": {
         "php": ">=5.5.9",
         "ext-apcu": "*",
-        "ext-imagick": "*",
         "ext-intl": "*",
         "ext-mbstring": "*",
         "ext-pcntl": "*",
