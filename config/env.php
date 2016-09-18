@@ -33,6 +33,14 @@ if (!env('APP_NAME')) {
                 $data = Hash::insert($data, $newKey, $value);
             }
 
+            foreach ($data['Email'] as $key => $config) {
+                if (isset($config['profile'])) {
+                    parse_str($config['profile'], $output);
+                    $data['Email'][$key] = array_merge($output, $data['Email'][$key]);
+                    unset($data['Email'][$key]['profile'], $output);
+                }
+            }
+
             return $data;
         }
     ]);
