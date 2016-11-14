@@ -83,11 +83,15 @@ class AppController extends Controller
             ],
         ]);
 
-        if (in_array($this->request->action, $this->searchActions)) {
+        if (in_array($this->request->action, $this->searchActions) && $this->modelClass !== null) {
             list($plugin, $tableClass) = pluginSplit($this->modelClass);
-            if (!empty($this->$tableClass) && $this->$tableClass->behaviors()->hasMethod('filterParams')) {
-                $this->Crud->addListener('Crud.Search');
-                $this->loadComponent('Search.Prg');
+            try {
+                if ($this->$tableClass->behaviors()->hasMethod('filterParams')) {
+                    $this->Crud->addListener('Crud.Search');
+                    $this->loadComponent('Search.Prg');
+                }
+            } catch (MissingModelException $e) {
+            } catch (UnexpectedValueException $e) {
             }
         }
     }
