@@ -88,7 +88,9 @@ class AppController extends Controller
             try {
                 if ($this->$tableClass->behaviors()->hasMethod('filterParams')) {
                     $this->Crud->addListener('Crud.Search');
-                    $this->loadComponent('Search.Prg');
+                    $this->loadComponent('Search.Prg', [
+                        'actions' => $this->searchActions,
+                    ]);
                 }
             } catch (MissingModelException $e) {
             } catch (UnexpectedValueException $e) {
