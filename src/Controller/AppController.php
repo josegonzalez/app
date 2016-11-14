@@ -77,11 +77,14 @@ class AppController extends Controller
                 'Crud.Api',
                 'Crud.ApiPagination',
                 'Crud.ApiQueryLog',
-                'CrudView.View',
                 'Crud.RelatedModels',
                 'Crud.Redirect',
             ],
         ]);
+
+        if ($this->isAdmin) {
+            $this->Crud->addListener('CrudView.View');
+        }
 
         if (in_array($this->request->action, $this->searchActions) && $this->modelClass !== null) {
             list($plugin, $tableClass) = pluginSplit($this->modelClass);
