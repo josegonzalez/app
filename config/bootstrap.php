@@ -232,5 +232,4 @@ Plugin::load('BootstrapUI');
 Plugin::load('Crud');
 Plugin::load('CrudView');
 Plugin::load('Josegonzalez/Upload');
-Plugin::load('Migrations');
 Plugin::load('Search');
