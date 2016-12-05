@@ -43,6 +43,16 @@ class AppController extends Controller
     protected $isAdmin = false;
 
     /**
+     * A list of actions where the CrudView.View
+     * listener should be enabled. If an action is
+     * in this list but `isAdmin` is false, the
+     * action will still be rendered via CrudView.View
+     *
+     * @var array
+     */
+    protected $adminActions = [];
+
+    /**
      * A list of actions where the Crud.SearchListener
      * and Search.PrgComponent should be enabled
      *
@@ -82,7 +92,7 @@ class AppController extends Controller
             ],
         ]);
 
-        if ($this->isAdmin) {
+        if ($this->isAdmin || in_array($this->request->action, $this->adminActions) {
             $this->Crud->addListener('CrudView.View');
         }
 
