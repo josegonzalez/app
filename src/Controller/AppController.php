@@ -144,7 +144,7 @@ class AppController extends Controller
         }
 
         $isRest = in_array($this->response->type(), ['application/json', 'application/xml']);
-        $isAdmin = $this->request->prefix == 'admin' || $this->isAdmin;
+        $isAdmin = $this->isAdmin;
         if (!$isRest && $isAdmin) {
             $this->viewClass = 'CrudView\View\CrudView';
         }
