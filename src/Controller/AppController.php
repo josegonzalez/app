@@ -92,7 +92,7 @@ class AppController extends Controller
             ],
         ]);
 
-        if ($this->isAdmin || in_array($this->request->action, $this->adminActions) {
+        if ($this->isAdmin || in_array($this->request->action, $this->adminActions)) {
             $this->Crud->addListener('CrudView.View');
         }
 
