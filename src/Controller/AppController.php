@@ -187,6 +187,7 @@ class AppController extends Controller
         if (in_array($action, $this->allowedActions)) {
             return true;
         }
+
         return false;
     }
 }
