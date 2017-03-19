@@ -52,13 +52,6 @@ legend {
     color:#15848F;
 }
 
-.index table {
-    margin-top: 2rem;
-    border: 0;
-    width: 100%;
-    table-layout: fixed;
-}
-
 .related table {
     border: 0;
     width: 100%;
@@ -127,21 +120,6 @@ ul.pagination .disabled:hover a {
 }
 .desc:after {
     content: " \2191";
-}
-
-button {
-    background: #8D6E65;
-}
-
-.form button:hover, .form button:focus {
-    background: #7A6058;
-    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.26) !important;
-}
-
-.form button[type="submit"] {
-    float: right;
-    text-transform: uppercase;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.26);
 }
 
 .form .error-message {
@@ -290,27 +268,6 @@ pre {
     text-decoration: underline;
 }
 
-.home header {
-    width: 100%;
-    height: 70%;
-    position: relative;
-    display: table;
-}
-
-.home h1 {
-    font-family: "Gill Sans MT", Calibri, sans-serif;
-}
-
-.home header .header-image {
-    display: table-cell;
-    vertical-align: middle;
-    text-align: center;
-}
-
-.home header h1 {
-    color: #fff;
-}
-
 .checks {
     padding:30px;
     color: #626262;
@@ -329,16 +286,6 @@ pre {
     height: 0;
     border-top: 1px solid rgba(0, 0, 0, 0.1);
     border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-}
-
-.home .checks.ctp-warning {
-    color: black;
-    background-color: #ffc600;
-}
-
-.home .checks.url-rewriting {
-    background-color: #F0F0F0;
-    display: none;
 }
 
 .checks .success,
@@ -399,6 +346,8 @@ pre {
 .index table {
     margin-top: 0rem;
     border: 0;
+    width: 100%;
+    table-layout: fixed;
 }
 
 table {

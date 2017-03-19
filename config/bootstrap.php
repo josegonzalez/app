@@ -13,11 +13,9 @@
  * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
 
-/*
- * You can remove this if you are confident that your PHP version is sufficient.
- */
-if (version_compare(PHP_VERSION, '5.5.9') < 0) {
-    trigger_error('Your PHP version must be equal or higher than 5.5.9 to use CakePHP.', E_USER_ERROR);
+// You can remove this if you are confident that your PHP version is sufficient.
+if (version_compare(PHP_VERSION, '5.6.0') < 0) {
+    trigger_error('Your PHP version must be equal or higher than 5.6.0 to use CakePHP.', E_USER_ERROR);
 }
 
 /*
@@ -90,13 +88,12 @@ try {
 //Configure::load('app_local', 'default');
 
 /*
- * When debug = false the metadata cache should last
- * for a very very long time, as we don't want
- * to refresh the cache while users are doing requests.
+ * When debug = true the metadata cache should only last
+ * for a short time.
  */
-if (!Configure::read('debug')) {
-    Configure::write('Cache._cake_model_.duration', '+1 years');
-    Configure::write('Cache._cake_core_.duration', '+1 years');
+if (Configure::read('debug')) {
+    Configure::write('Cache._cake_model_.duration', '+2 minutes');
+    Configure::write('Cache._cake_core_.duration', '+2 minutes');
 }
 
 /*
@@ -152,11 +149,11 @@ if (!Configure::read('App.fullBaseUrl')) {
     unset($httpHost, $s);
 }
 
-Cache::config(Configure::consume('Cache'));
-ConnectionManager::config(Configure::consume('Datasources'));
-Email::configTransport(Configure::consume('EmailTransport'));
-Email::config(Configure::consume('Email'));
-Log::config(Configure::consume('Log'));
+Cache::setConfig(Configure::consume('Cache'));
+ConnectionManager::setConfig(Configure::consume('Datasources'));
+Email::setConfigTransport(Configure::consume('EmailTransport'));
+Email::setConfig(Configure::consume('Email'));
+Log::setConfig(Configure::consume('Log'));
 Security::salt(Configure::consume('Security.salt'));
 
 /*
@@ -193,6 +190,8 @@ Type::build('time')
 Type::build('date')
     ->useImmutable();
 Type::build('datetime')
+    ->useImmutable();
+Type::build('timestamp')
     ->useImmutable();
 
 /*
