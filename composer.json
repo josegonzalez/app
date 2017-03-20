@@ -17,7 +17,7 @@
         "cakephp/cakephp": "3.4.*",
         "mobiledetect/mobiledetectlib": "2.*",
         "cakephp/migrations": "~1.0",
-        "cakephp/plugin-installer": "*",
+        "cakephp/plugin-installer": "~1.0",
         "josegonzalez/dotenv": "2.*",
         "friendsofcake/crud": "4.*",
         "friendsofcake/crud-view": "0.*",
