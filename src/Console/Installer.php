@@ -197,7 +197,7 @@ class Installer
         $newKey = hash('sha256', Security::randomBytes(64));
 
         static::setSecuritySaltInFile($dir, $io, $newKey, 'app.php');
-        static::setSecuritySaltInFile($dir, $io, $newKey, '.env.default');
+        static::setSecuritySaltInFile($dir, $io, $newKey, '.env');
     }
 
     /**
