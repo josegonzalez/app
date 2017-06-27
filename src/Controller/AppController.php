@@ -158,7 +158,7 @@ class AppController extends Controller
 
         $isRest = in_array($this->response->type(), ['application/json', 'application/xml']);
         $isAdmin = $this->isAdmin || in_array($this->request->action, $this->adminActions);
-        if (!$isRest && $isAdmin) {
+        if (!$isRest && $isAdmin && empty($this->request->getParam('_ext'))) {
             $this->viewBuilder()->className('CrudView\View\CrudView');
         }
     }
