@@ -5,11 +5,11 @@
 [![Version](https://img.shields.io/packagist/v/josegonzalez/app.svg?style=flat-square)](https://packagist.org/packages/josegonzalez/app)
 [![Total Downloads](https://img.shields.io/packagist/dt/josegonzalez/app.svg?style=flat-square)](https://packagist.org/packages/josegonzalez/app)
 
-A fork of the [official skeleton](https://github.com/cakephp/app) for creating applications with [CakePHP](http://cakephp.org) 3.x. It should be more or less "batteries included"
+A fork of the [official skeleton](https://github.com/cakephp/app) for creating applications with [CakePHP](http://cakephp.org) 3.x. It should be more or less "batteries included".
 
 ## Installation
 
-1. Download [Composer](http://getcomposer.org/doc/00-intro.md) or update `composer self-update`.
+1. Download [Composer](https://getcomposer.org/doc/00-intro.md) or update `composer self-update`.
 2. Run `php composer.phar create-project --prefer-dist josegonzalez/app [app_name]`.
 
 If Composer is installed globally, run
@@ -204,6 +204,6 @@ See [here](https://github.com/josegonzalez/php-queuesadilla/blob/master/docs/def
 
 ### Layout
 
-The app skeleton uses a subset of [Foundation](http://foundation.zurb.com/) CSS
+The app skeleton uses a subset of [Foundation](http://foundation.zurb.com/) (v5) CSS
 framework by default. You can, however, replace it with any other library or
 custom styles.
