@@ -129,7 +129,7 @@ class AppController extends Controller
     /**
      * Before filter callback.
      *
-     * @param \Cake\Event\Event $event The beforeRender event.
+     * @param \Cake\Event\Event $event The beforeFilter event.
      * @return void
      */
     public function beforeFilter(Event $event)
@@ -160,22 +160,6 @@ class AppController extends Controller
         $isAdmin = $this->isAdmin || in_array($this->request->action, $this->adminActions);
         if (!$isRest && $isAdmin && empty($this->request->getParam('_ext'))) {
             $this->viewBuilder()->className('CrudView\View\CrudView');
-        }
-    }
-
-    /**
-     * Before render callback.
-     *
-     * @param \Cake\Event\Event $event The beforeRender event.
-     * @return \Cake\Network\Response|null|void
-     */
-    public function beforeRender(Event $event)
-    {
-        parent::beforeRender($event);
-        $isRest = in_array($this->response->type(), ['application/json', 'application/xml']);
-
-        if (!array_key_exists('_serialize', $this->viewVars) && $isRest) {
-            $this->set('_serialize', true);
         }
     }
 
