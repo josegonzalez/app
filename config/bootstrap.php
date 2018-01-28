@@ -13,11 +13,6 @@
  * @license       https://opensource.org/licenses/mit-license.php MIT License
  */
 
-// You can remove this if you are confident that your PHP version is sufficient.
-if (version_compare(PHP_VERSION, '7.0.0') < 0) {
-    trigger_error('Your PHP version must be equal or higher than 7.0.0 to use CakePHP.', E_USER_ERROR);
-}
-
 /*
  * Configure paths required to find CakePHP + general filepath constants
  */
