@@ -100,11 +100,11 @@ class AppController extends Controller
             ],
         ]);
 
-        if ($this->isAdmin || in_array($this->request->action, $this->adminActions)) {
+        if ($this->isAdmin || in_array($this->request->getParam('action'), $this->adminActions)) {
             $this->Crud->addListener('CrudView.View');
         }
 
-        if (in_array($this->request->action, $this->searchActions) && $this->modelClass !== null) {
+        if (in_array($this->request->getParam('action'), $this->searchActions) && $this->modelClass !== null) {
             list($plugin, $tableClass) = pluginSplit($this->modelClass);
             try {
                 if ($this->$tableClass->behaviors()->hasMethod('filterParams')) {
@@ -156,8 +156,8 @@ class AppController extends Controller
             }
         }
 
-        $isRest = in_array($this->response->type(), ['application/json', 'application/xml']);
-        $isAdmin = $this->isAdmin || in_array($this->request->action, $this->adminActions);
+        $isRest = in_array($this->response->getType(), ['application/json', 'application/xml']);
+        $isAdmin = $this->isAdmin || in_array($this->request->getParam('action'), $this->adminActions);
         if (!$isRest && $isAdmin && empty($this->request->getParam('_ext'))) {
             $this->viewBuilder()->className('CrudView\View\CrudView');
         }

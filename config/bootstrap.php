@@ -206,7 +206,7 @@ if (Configure::read('debug')) {
 
 // Handle the CakeQueuesadilla
 Plugin::load('Josegonzalez/CakeQueuesadilla');
-\Josegonzalez\CakeQueuesadilla\Queue\Queue::config(Configure::consume('Queuesadilla'));
+\Josegonzalez\CakeQueuesadilla\Queue\Queue::setConfig(Configure::consume('Queuesadilla'));
 
 Plugin::load('AssetCompress', ['bootstrap' => true]);
 Plugin::load('BootstrapUI');
