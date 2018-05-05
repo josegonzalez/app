@@ -162,7 +162,7 @@ class AppController extends Controller
         $isRest = in_array($this->response->getType(), ['application/json', 'application/xml']);
         $isCrudView = $this->isCrudView || in_array($this->request->getParam('action'), $this->crudViewActions);
         if (!$isRest && $isCrudView && empty($this->request->getParam('_ext'))) {
-            $this->viewBuilder()->className('CrudView\View\CrudView');
+            $this->viewBuilder()->setClassName('CrudView\View\CrudView');
         }
     }
 
