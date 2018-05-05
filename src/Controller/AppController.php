@@ -139,22 +139,22 @@ class AppController extends Controller
         parent::beforeFilter($event);
 
         $this->Crud->on('beforePaginate', function (Event $event) {
-            $repository = $event->subject()->query->repository();
-            $primaryKey = $repository->primaryKey();
+            $repository = $event->getSubject()->query->getRepository();
+            $primaryKey = $repository->getPrimaryKey();
 
             if (!is_array($primaryKey)) {
                 $this->paginate['order'] = [
-                    sprintf('%s.%s', $repository->alias(), $primaryKey) => 'asc'
+                    sprintf('%s.%s', $repository->getAlias(), $primaryKey) => 'asc'
                 ];
             }
         });
 
         if ($this->Crud->isActionMapped()) {
-            $this->Crud->action()->config('scaffold.sidebar_navigation', false);
-            $this->Crud->action()->config('scaffold.brand', Configure::read('App.name'));
-            $this->Crud->action()->config('scaffold.site_title', Configure::read('App.name'));
+            $this->Crud->action()->setConfig('scaffold.sidebar_navigation', false);
+            $this->Crud->action()->setConfig('scaffold.brand', Configure::read('App.name'));
+            $this->Crud->action()->setConfig('scaffold.site_title', Configure::read('App.name'));
             if (method_exists($this, 'getUtilityNavigation')) {
-                $this->Crud->action()->config('scaffold.utility_navigation', $this->getUtilityNavigation());
+                $this->Crud->action()->setConfig('scaffold.utility_navigation', $this->getUtilityNavigation());
             }
         }
 
