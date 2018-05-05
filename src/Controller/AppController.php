@@ -35,23 +35,23 @@ class AppController extends Controller
 
     /**
      * Whether or not to treat a controller as
-     * if it were an admin controller or not.
+     * if it were an crud view controller or not.
      *
      * Used to turn CrudView on and off at a class-level
      *
      * @var bool
      */
-    protected $isAdmin = false;
+    protected $isCrudView = false;
 
     /**
      * A list of actions where the CrudView.View
      * listener should be enabled. If an action is
-     * in this list but `isAdmin` is false, the
+     * in this list but `isCrudView` is false, the
      * action will still be rendered via CrudView.View
      *
      * @var array
      */
-    protected $adminActions = [];
+    protected $crudViewActions = [];
 
     /**
      * A list of actions that should be allowed for
@@ -103,7 +103,7 @@ class AppController extends Controller
             ],
         ]);
 
-        if ($this->isAdmin || in_array($this->request->getParam('action'), $this->adminActions)) {
+        if ($this->isCrudView || in_array($this->request->getParam('action'), $this->crudViewActions)) {
             $this->Crud->addListener('CrudView.View');
         }
 
@@ -160,8 +160,8 @@ class AppController extends Controller
         }
 
         $isRest = in_array($this->response->getType(), ['application/json', 'application/xml']);
-        $isAdmin = $this->isAdmin || in_array($this->request->getParam('action'), $this->adminActions);
-        if (!$isRest && $isAdmin && empty($this->request->getParam('_ext'))) {
+        $isCrudView = $this->isCrudView || in_array($this->request->getParam('action'), $this->crudViewActions)
+        if (!$isRest && $isCrudView && empty($this->request->getParam('_ext'))) {
             $this->viewBuilder()->className('CrudView\View\CrudView');
         }
     }
