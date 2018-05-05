@@ -175,6 +175,15 @@ class AppController extends Controller
     public function isAuthorized($user = null)
     {
         $action = $this->request->getParam('action');
+        if ($action == 'isAuthorized') {
+            throw new MissingActionException([
+                'controller' => $this->name . 'Controller',
+                'action' => $this->request->getParam('action'),
+                'prefix' => $this->request->getParam('prefix') ?: '',
+                'plugin' => $this->request->getParam('plugin'),
+            ]);
+        }
+
         if (in_array($action, $this->allowedActions)) {
             return true;
         }
