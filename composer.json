@@ -15,7 +15,7 @@
         "ext-pdo_pgsql": "*",
         "ext-redis": "*",
         "cakephp/cakephp": "3.6.*",
-        "cakephp/migrations": "^1.8.0",
+        "cakephp/migrations": "^2.0.0",
         "cakephp/plugin-installer": "^1.0",
         "josegonzalez/dotenv": "3.*",
         "friendsofcake/crud": "^5.0",
