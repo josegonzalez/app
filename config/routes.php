@@ -50,8 +50,8 @@ Router::scope('/', function (RouteBuilder $routes) {
     $routes->setExtensions(['json']);
 
     /**
-     * Apply a middlewares to the current route scope.
-     * Requires middlewares to be registered via `Application::routes()` with `registerMiddleware()`
+     * Apply a middleware to the current route scope.
+     * Requires middleware to be registered via `Application::routes()` with `registerMiddleware()`
      */
     $routes->applyMiddleware('csrf');
 
@@ -87,7 +87,7 @@ Router::scope('/', function (RouteBuilder $routes) {
 });
 
 /**
- * If you need different set of middlewares or none at all, open new scope and define routes there
+ * If you need different set of middleware or none at all, open new scope and define routes there
  *
  * ```
  * Router::scope('/api', function (RouteBuilder $routes) {
