@@ -2,19 +2,17 @@ language: php
 
 dist: trusty
 
-sudo: false
-
 php:
   - 7.0
   - 7.1
   - 7.2
+  - 7.3
 
-matrix:
-  fast_finish: true
-
+env:
   global:
     - DEFAULT=1
 
+matrix:
   include:
     - php: 7.0
       env: PHPCS=1 DEFAULT=0
@@ -36,7 +34,6 @@ before_install:
 before_script:
   - if [[ $PHPCS = 1 ]]; then composer require cakephp/cakephp-codesniffer:~2.1; fi
   - if [[ $DEFAULT = 1 ]]; then composer install; fi
-  - if [[ $DEFAULT = 1 ]]; then composer require phpunit/phpunit:"^5.7|^6.0"; fi
   - if [[ $DEFAULT = 1 ]]; then composer run-script post-install-cmd --no-interaction; fi
   - if [[ $PHPSTAN = 1 ]]; then composer require --dev "phpstan/phpstan"; fi
 
