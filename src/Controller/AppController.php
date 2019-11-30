@@ -143,11 +143,11 @@ class AppController extends Controller
      * Before filter callback.
      *
      * @param \Cake\Event\Event $event The beforeFilter event.
-     * @return Cake\Http\Response|null
+     * @return \Cake\Http\Response|null
      */
     public function beforeFilter(Event $event)
     {
-        parent::beforeFilter($event);
+        $response = parent::beforeFilter($event);
 
         $this->Crud->on('beforePaginate', function (Event $event) {
             $repository = $event->getSubject()->query->getRepository();
@@ -174,6 +174,8 @@ class AppController extends Controller
         if (!$isRest && $isCrudView && empty($this->request->getParam('_ext'))) {
             $this->viewBuilder()->setClassName('CrudView\View\CrudView');
         }
+
+        return $response;
     }
 
     /**
