@@ -195,12 +195,3 @@ Type::build('timestamp')
  * Plugin::load('Migrations'); //Loads a single plugin named Migrations
  *
  */
-
-// Handle the CakeQueuesadilla
-Plugin::load('Josegonzalez/CakeQueuesadilla');
-\Josegonzalez\CakeQueuesadilla\Queue\Queue::setConfig(Configure::consume('Queuesadilla'));
-
-Plugin::load('BootstrapUI');
-Plugin::load('Crud');
-Plugin::load('Josegonzalez/Upload');
-Plugin::load('Search');

@@ -52,6 +52,14 @@ class Application extends BaseApplication
         // Load more plugins here
         $this->addPlugin('AssetCompress', ['bootstrap' => true]);
         $this->addPlugin('CrudView');
+        $this->addPlugin('BootstrapUI');
+        $this->addPlugin('Crud');
+        $this->addPlugin('Josegonzalez/CakeQueuesadilla');
+        $this->addPlugin('Josegonzalez/Upload');
+        $this->addPlugin('Search');
+
+        \Josegonzalez\CakeQueuesadilla\Queue\Queue::setConfig(Configure::consume('Queuesadilla'));
+
     }
 
     /**
