@@ -200,9 +200,7 @@ Type::build('timestamp')
 Plugin::load('Josegonzalez/CakeQueuesadilla');
 \Josegonzalez\CakeQueuesadilla\Queue\Queue::setConfig(Configure::consume('Queuesadilla'));
 
-Plugin::load('AssetCompress', ['bootstrap' => true]);
 Plugin::load('BootstrapUI');
 Plugin::load('Crud');
-Plugin::load('CrudView');
 Plugin::load('Josegonzalez/Upload');
 Plugin::load('Search');
