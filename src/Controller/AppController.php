@@ -19,6 +19,7 @@ use Cake\Controller\Exception\MissingActionException;
 use Cake\Core\Configure;
 use Cake\Datasource\Exception\MissingModelException;
 use Cake\Event\Event;
+use Crud\Controller\Component\Crud;
 use Crud\Controller\ControllerTrait;
 use UnexpectedValueException;
 
