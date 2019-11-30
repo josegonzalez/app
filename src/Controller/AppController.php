@@ -40,7 +40,6 @@ class AppController extends Controller
      * Won't be set until after Controller::initialize() is called.
      *
      * @var \Crud\Controller\Component\Crud
-     * @deprecated 3.1.0 Use viewBuilder() instead.
      */
     public $Crud;
 
