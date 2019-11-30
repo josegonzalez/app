@@ -17,8 +17,10 @@ namespace App\Controller;
 use Cake\Controller\Controller;
 use Cake\Controller\Exception\MissingActionException;
 use Cake\Core\Configure;
+use Cake\Datasource\Exception\MissingModelException;
 use Cake\Event\Event;
 use Crud\Controller\ControllerTrait;
+use UnexpectedValueException;
 
 /**
  * Application Controller
@@ -32,6 +34,15 @@ class AppController extends Controller
 {
 
     use ControllerTrait;
+
+    /**
+     * Instance of the Crud class created during initialization.
+     * Won't be set until after Controller::initialize() is called.
+     *
+     * @var \Crud\Controller\Component\Crud
+     * @deprecated 3.1.0 Use viewBuilder() instead.
+     */
+    public $Crud;
 
     /**
      * Whether or not to treat a controller as
@@ -132,7 +143,7 @@ class AppController extends Controller
      * Before filter callback.
      *
      * @param \Cake\Event\Event $event The beforeFilter event.
-     * @return void
+     * @return Cake\Http\Response|null
      */
     public function beforeFilter(Event $event)
     {
