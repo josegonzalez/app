@@ -56,9 +56,11 @@ automated upgrades, so you have to do any updates manually.
 The following is a list of CakePHP plugins that are installed and pre-configured:
 
 - [friendsofcake/bootstrap-ui](https://github.com/FriendsOfCake/bootstrap-ui)
+- [friendsofcake/crud-users](https://github.com/FriendsOfCake/crud-users)
 - [friendsofcake/crud-view](https://github.com/FriendsOfCake/crud-view)
 - [friendsofcake/crud](https://github.com/FriendsOfCake/crud)
 - [friendsofcake/search](https://github.com/FriendsOfCake/search)
+- [josegonzalez/cakephp-users](https://github.com/josegonzalez/cakephp-users)
 - [josegonzalez/cakephp-upload](https://github.com/josegonzalez/cakephp-upload)
 - [josegonzalez/cakephp-queuesadilla](https://github.com/josegonzalez/cakephp-queuesadilla)
 - [markstory/asset_compress](https://github.com/markstory/asset_compress)
@@ -92,6 +94,16 @@ The [markstory/asset_compress](https://github.com/markstory/asset_compress) plug
 By default, the [crud](https://github.com/friendsofcake/crud) plugin has been enabled with all known customizations. Simply creating a controller will enable all CRUD-actions in the default RESTful api mode.
 
 Note that we *also* default pagination sorting to the table's `primaryKey` (if there is a single `primaryKey` field).
+
+#### Crud Users Defaults
+
+The `CrudUsers` plugin has been preconfigured for use with the `Users` plugin. A migration is pre-created in the skeleton app, and can be run to initialize the plugin. Associated plugin migrations will also be run via:
+
+```shell
+composer run-script compile
+```
+
+See the [Users plugin documentation](https://github.com/josegonzalez/cakephp-users) for more information.
 
 #### Crud View Defaults
 

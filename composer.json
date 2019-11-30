@@ -25,6 +25,7 @@
         "markstory/asset_compress": "3.*",
         "mobiledetect/mobiledetectlib": "2.*",
         "josegonzalez/cakephp-upload": "4.*",
+        "josegonzalez/cakephp-users": "0.*",
         "josegonzalez/cakephp-queuesadilla": "0.6.*",
         "josegonzalez/queuesadilla": "*",
         "josegonzalez/php-error-handlers": "0.*"
@@ -55,7 +56,9 @@
     "scripts": {
         "compile": [
             "bin/cake migrations migrate",
-            "bin/cake migrations migrate -p Josegonzalez/CakeQueuesadilla"
+            "bin/cake migrations migrate -p Josegonzalez/CakeQueuesadilla",
+            "bin/cake migrations migrate -p Muffin/Tokenize",
+            "bin/cake migrations migrate -p ADmad/SocialAuth"
         ],
         "post-install-cmd": "App\\Console\\Installer::postInstall",
         "post-create-project-cmd": "App\\Console\\Installer::postInstall",
