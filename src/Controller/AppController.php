@@ -19,7 +19,6 @@ use Cake\Controller\Exception\MissingActionException;
 use Cake\Core\Configure;
 use Cake\Datasource\Exception\MissingModelException;
 use Cake\Event\Event;
-use Crud\Controller\Component\Crud;
 use Crud\Controller\ControllerTrait;
 use UnexpectedValueException;
 
@@ -40,7 +39,7 @@ class AppController extends Controller
      * Instance of the Crud class created during initialization.
      * Won't be set until after Controller::initialize() is called.
      *
-     * @var \Crud\Controller\Component\Crud
+     * @var \Crud\Controller\Component\CrudComponent
      */
     public $Crud;
 
