@@ -59,8 +59,11 @@ class Application extends BaseApplication
         $this->addPlugin('Search');
         $this->addPlugin('Users', ['bootstrap' => true, 'router' => true]);
 
-        \Josegonzalez\CakeQueuesadilla\Queue\Queue::setConfig(Configure::consume('Queuesadilla'));
+        foreach (\Josegonzalez\CakeQueuesadilla\Queue\Queue::configured() as $config) {
+            \Josegonzalez\CakeQueuesadilla\Queue\Queue::drop($config);
+        }
 
+        \Josegonzalez\CakeQueuesadilla\Queue\Queue::setConfig(Configure::read('Queuesadilla'));
     }
 
     /**
