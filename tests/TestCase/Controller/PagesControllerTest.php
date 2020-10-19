@@ -14,7 +14,6 @@
  */
 namespace App\Test\TestCase\Controller;
 
-use App\Controller\PagesController;
 use Cake\Core\App;
 use Cake\Core\Configure;
 use Cake\Http\Response;
@@ -24,6 +23,8 @@ use Cake\View\Exception\MissingTemplateException;
 
 /**
  * PagesControllerTest class
+ *
+ * @uses \App\Controller\PagesController
  */
 class PagesControllerTest extends IntegrationTestCase
 {
@@ -93,5 +94,32 @@ class PagesControllerTest extends IntegrationTestCase
         $this->get('/pages/../Layout/ajax');
         $this->assertResponseCode(403);
         $this->assertResponseContains('Forbidden');
+    }
+
+    /**
+     * Test that CSRF protection is applied to page rendering.
+     *
+     * @reutrn void
+     */
+    public function testCsrfAppliedError()
+    {
+        $this->post('/pages/home', ['hello' => 'world']);
+
+        $this->assertResponseCode(403);
+        $this->assertResponseContains('CSRF');
+    }
+
+    /**
+     * Test that CSRF protection is applied to page rendering.
+     *
+     * @reutrn void
+     */
+    public function testCsrfAppliedOk()
+    {
+        $this->enableCsrfToken();
+        $this->post('/pages/home', ['hello' => 'world']);
+
+        $this->assertResponseCode(200);
+        $this->assertResponseContains('CakePHP');
     }
 }

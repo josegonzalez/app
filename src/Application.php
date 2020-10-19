@@ -46,7 +46,7 @@ class Application extends BaseApplication
          * Debug Kit should not be installed on a production system
          */
         if (Configure::read('debug')) {
-            $this->addPlugin(\DebugKit\Plugin::class);
+            $this->addPlugin('DebugKit');
         }
 
         // Load more plugins here
@@ -81,7 +81,7 @@ class Application extends BaseApplication
 
             // Handle plugin/theme assets like CakePHP normally does.
             ->add(new AssetMiddleware([
-                'cacheTime' => Configure::read('Asset.cacheTime')
+                'cacheTime' => Configure::read('Asset.cacheTime'),
             ]))
 
             // Add routing middleware.
